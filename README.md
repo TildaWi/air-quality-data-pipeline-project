@@ -14,13 +14,14 @@
 
 ```plaintext
 📁 air_quality_data_pipeline/
- ┣ 📁 data/                API 응답 데이터 및 CSV 파일
- ┣ 📁 dags/                Airflow DAG 코드
- ┣ 📁 notebooks/           데이터 수집 및 전처리 Colab 노트북
- ┣ 📁 images/              시각화 결과 (막대 그래프, 지도 등)
- ┣ 📁 reports/             분석 보고서 및 PPT 자료
- ┣ 📄 README.md            프로젝트 설명 문서
- ┗ 📄 requirements.txt     사용한 Python 패키지 목록
+ ┣ 📁 data/                  API 응답 데이터 및 CSV 파일
+ ┣ 📁 dags/                  Airflow DAG 코드
+ ┣ 📁 notebooks/             데이터 수집 및 전처리 Colab 노트북
+ ┣ 📁 images/                시각화 결과 (막대 그래프, 지도 등)
+ ┣ 📁 reports/               분석 보고서 및 PPT 자료
+ ┣ 📄 README.md              프로젝트 설명 문서
+ ┣ 📄 requirements.txt       사용한 Python 패키지 목록
+ ┗ 📄 codebook.xlsx          데이터 정의서 (Code Book)
 ```
 
 ---
