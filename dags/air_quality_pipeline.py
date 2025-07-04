@@ -27,7 +27,7 @@ dag = DAG(
 
 # API 호출 및 CSV 저장 함수
 def fetch_air_quality_data():
-    api_key = "9Ds02ZptFyRbU7aeLMcyV9KDjW4/YM2TGt1Yo9mgu76ZPCV8wTkJl8poRvjwPX4gvrCDkTqS1GdrsiqLLrXMog=="
+    api_key = "API 인증 키 삽입"
     url = f"http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey={api_key}&returnType=json&numOfRows=100&pageNo=1&sidoName=서울&ver=1.0"
 
     response = requests.get(url)
