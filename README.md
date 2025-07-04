@@ -64,7 +64,7 @@
 - 주요 변수: SO2, CO, O3, NO2, PM10, PM2.5 등 대기오염 지표  
 - 결과 데이터 CSV 저장 및 BigQuery 적재  
 
-📄 삽입 이미지: `images/api_response_to_bigquery.png`  
+![삽입 이미지](images/api_response_to_bigquery.png)  
 
 ---
 
