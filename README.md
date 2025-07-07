@@ -3,8 +3,8 @@
 ### 분석 카테고리: 데이터 시각화
 > **분석 기간** &nbsp;|&nbsp;  2025.07.03 ~ 2025.07.08  
 > **분석 유형** &nbsp;|&nbsp;  개인 프로젝트  
-> **주요 기법** &nbsp;|&nbsp;  API 데이터 수집 자동화, ETL 파이프라인 구축, 실시간 데이터 적재 및 대시보드 시각화  
-> **활용 기술** &nbsp;|&nbsp;  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white) ![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat-square&logo=GoogleCloud&logoColor=white) ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=ApacheAirflow&logoColor=white) ![LookerStudio](https://img.shields.io/badge/LookerStudio-4285F4?style=flat-square&logo=Looker&logoColor=white)  
+> **분석 기법** &nbsp;|&nbsp;  API 데이터 수집 자동화, ETL 파이프라인 구축, 실시간 데이터 적재 및 대시보드 시각화  
+> **분석 기술** &nbsp;|&nbsp;  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white) ![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat-square&logo=GoogleCloud&logoColor=white) ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=ApacheAirflow&logoColor=white) ![LookerStudio](https://img.shields.io/badge/LookerStudio-4285F4?style=flat-square&logo=Looker&logoColor=white)  
 
 ---
 
