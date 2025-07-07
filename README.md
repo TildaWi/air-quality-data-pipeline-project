@@ -1,5 +1,5 @@
-# 🌱 Real-time Air Quality Monitoring Automation Project
-> **공공데이터 기반 대기오염 실시간 분석 자동화**
+# 🌱 Real-time Air Quality Monitoring Automation Project <br/>
+     공공데이터 기반 대기오염 실시간 분석 자동화
 
 ### 분석 카테고리: 데이터 시각화
 > **분석 기간** &nbsp;|&nbsp;  2025.07.03 ~ 2025.07.08  
