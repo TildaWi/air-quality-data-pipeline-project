@@ -97,8 +97,8 @@ df.to_csv('data/air_quality.csv', index=False)
 
 ---
 
-### 📚 발표 자료 및 보고서
-- 📄 [발표 자료 PDF](reports/air_quality_presentation.pdf)
+### 3-4) 발표 자료 및 보고서
+- 📚 [발표 자료 PDF](reports/air_quality_presentation.pdf)
 - 📄 [프로젝트 요약 PDF](reports/air_quality_summary.pdf)
 
 ---
