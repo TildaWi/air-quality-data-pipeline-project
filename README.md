@@ -1,4 +1,5 @@
-# 🌱 공공 데이터 기반 '대기오염 실시간 분석 자동화' 프로젝트
+# 🌱 Real-time Air Quality Monitoring Automation Project
+> **공공데이터 기반 대기오염 실시간 분석 자동화**
 
 ### 분석 카테고리: 데이터 시각화
 > **분석 기간** &nbsp;|&nbsp;  2025.07.03 ~ 2025.07.08  
@@ -15,12 +16,10 @@
 ```plaintext
 📁 air_quality_pipeline/
  ┣ 📁 dags/                     Airflow DAG 코드
- ┃ ┣ 📄 air_quality_pipeline.py   대기오염 데이터 수집 및 적재 DAG
- ┃ ┣ 📄 station_mapping_dag.py    측정소 매핑 데이터 적재 DAG
  ┣ 📁 data/                     API 응답 데이터
  ┣ 📁 notebooks/                데이터 전처리 노트북
- ┣ 📁 images/                   시각화 이미지
- ┣ 📁 reports/                  프로젝트 발표 자료 및 요약 보고서
+ ┣ 📁 images/                   시각화 결과
+ ┣ 📁 reports/                  프로젝트 보고서
  ┣ 📄 README.md                 프로젝트 설명 문서
  ┗ 📄 codebook.xlsx             데이터 정의서 (Code Book)
 ```
@@ -29,32 +28,41 @@
 
 ## 1. 프로젝트 개요
 
-### 📌 세 줄 요약
-- 공공데이터포털의 환경공단 API를 활용해 시도별 실시간 대기오염 데이터를 수집하고 Google Cloud(BigQuery)에 적재
-- Airflow 기반 ETL 파이프라인으로 자동화 및 스케줄링 처리
-- BigQuery-View + Looker Studio를 연계해 실시간 대기오염 모니터링 대시보드 구축
+## 📌 세 줄 요약
+- 공공데이터포털 API를 활용한 실시간 대기오염 데이터 수집 및 자동화 파이프라인 구축
+- Airflow 기반 ETL → BigQuery 적재 → Looker Studio 대시보드 연계
+- 운영팀의 **수동 데이터 수집 업무 100% 제거, 실시간 모니터링 시스템 구현**
 
 ---
 
 ## 2. 문제 정의 및 접근 방식
 
 ### 🔎 Situation
-- 데이터 분석팀은 시도별 대기오염 정보를 실시간으로 모니터링하고 분석할 필요가 있음
-- 기존 방식은 공공데이터포털에서 주기적으로 데이터를 수동 다운로드 → 비효율적이고 사람이 개입해야 함
+- 운영팀은 시도별 대기오염 정보를 실시간으로 모니터링하고 분석하는 것이 주 담당 업무
+- 기존 프로세스는 대기오염 데이터를 매일 공공데이터포털에서 수동 다운로드 → 엑셀 업로드 → 대시보드 업데이트 방식
+- 수동 프로세스 제거 및 실시간 변화 감지로 운영 대응시간 단축 필요
 
 ### 💡 Task
 - API 호출 → 데이터 전처리 → BigQuery 적재까지 자동화된 데이터 파이프라인 구축
 - Looker Studio를 통해 실시간 데이터 시각화 제공
 
 ### 🏃 Action
-- 공공데이터포털 API 호출 및 XML 데이터 파싱
-- pandas DataFrame 전처리 → CSV 저장
-- Airflow DAG 구성 → GCS 업로드 → BigQuery 적재
-- Looker Studio 연결 → 대시보드 설계 (KPI 카드, 지도, 시계열 그래프)
+- **Python**: API 호출, XML 파싱
+- **Airflow**: ETL 자동화 및 스케줄링
+- **GCP (BigQuery + GCS)**: 데이터 적재 및 쿼리 처리
+- **Looker Studio**: 실시간 시각화 대시보드
+
+![Architecture Diagram](images/architecture.png)
 
 ### 🚀 Result
-- 실시간 데이터 적재 자동화 및 운영팀 활용 가능
-- Looker Studio 실시간 대시보드 구축으로 데이터 활용성 극대화
+✅ **운영팀 업무 효율화**  
+→ 공공데이터포털 수동 다운로드→실시간 대시보드 전환  
+
+✅ **실시간 대시보드 구축**  
+- KPI 카드, 시도별 오염도 지도, 시계열 추이 시각화
+- **로드 시간: 초기 5초 → 최적화 후 1.2초**
+
+![Dashboard Preview](images/dashboard.png)
 
 ---
 
@@ -106,28 +114,6 @@ df.to_csv('data/air_quality.csv', index=False)
 ## 4. 프로젝트 회고
 
 ### ✏️ Learned Lessons
-
-### 4-1) API부터 실시간 분석까지 End-to-End 파이프라인 설계
-- 공공데이터포털 환경공단 API를 활용해 대기오염 데이터를 수집하고, Google Cloud Platform(BigQuery)에 적재하여 실시간 대시보드를 구축했습니다.
-- 처음에는 API 호출 시 인코딩 문제와 요청 파라미터 오류로 반복적인 타임아웃이 발생했지만, API 스펙 재검토와 XML 파싱 적용으로 해결했습니다.
-
----
-
-### 4-2) Airflow DAG 작성과 클라우드 자동화 트러블슈팅
-- Airflow의 **PythonOperator** 및 **GCSToBigQueryOperator**를 활용하여 GCS → BigQuery로 데이터를 자동 적재하는 파이프라인을 설계했습니다.
-- Composer(GCP Airflow) v3 환경에서는 외부 API 호출 권한, DAG 동기화 지연, 버전 차이에 따른 설정 문제를 겪었고, 공개 IP 설정 및 서비스 계정 권한 재구성으로 문제를 해결했습니다.
-- 이번 경험으로 **로컬 환경에서 DAG 테스트 후 클라우드 배포**하는 것이 효율적이라는 점을 깨달았습니다.
-
----
-
-### 4-3) 실시간 대시보드를 통한 데이터 활용성 극대화
-- BigQuery View와 Looker Studio를 연계해 운영팀이 실시간으로 대기오염 데이터를 모니터링할 수 있는 대시보드를 제작했습니다.
-- KPI 카드, 시도별 오염도 지도, 시간대별 변화 추이 등 직관적인 시각화를 구현했습니다.
-- 다만 초기에는 View 쿼리 최적화 부족으로 대시보드 로딩 속도가 느려지는 이슈가 있었고, 이후 요약 View 설계와 필터 적용으로 개선했습니다.
-
----
-
-### 4-4) 다음에는…
-- API 호출 단계부터 **Postman** 등으로 사전 테스트를 철저히 하고,
-- 데이터셋 설계 시 **GCS 버킷과 동일한 지역(location)** 을 지정하며,
-- 대시보드용 View는 **Materialized View**로 대체해 퍼포먼스를 높이는 방식도 고려할 계획입니다.
+- API 인코딩/타임아웃 이슈 → 재시도 로직 추가
+- Airflow v3 Composer 외부 API 호출 오류 → 서비스 계정 재설정
+- BigQuery View → Materialized View로 교체 고려 (퍼포먼스 향상)
