@@ -1,10 +1,11 @@
 # Real-time Air Quality Monitoring Automation Project <br/> (공공데이터 기반 실시간 대기오염 모니터링 자동화)
 
 ### 분석 카테고리: 데이터 자동화 및 데이터 시각화
-> **분석 기간** &nbsp;|&nbsp;  2025.07.03 ~ 2025.07.08  
+> **분석 기간** &nbsp;|&nbsp;  2025.06.19 ~ 2025.07.08  
 > **분석 유형** &nbsp;|&nbsp;  개인 프로젝트  
 > **분석 기법** &nbsp;|&nbsp;  API 데이터 수집 자동화, ETL 파이프라인 구축, 실시간 데이터 적재 및 대시보드 시각화  
-> **분석 기술** &nbsp;|&nbsp;  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white) ![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat-square&logo=GoogleCloud&logoColor=white) ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=ApacheAirflow&logoColor=white) ![LookerStudio](https://img.shields.io/badge/LookerStudio-4285F4?style=flat-square&logo=Looker&logoColor=white)  
+> **분석 기술** &nbsp;|&nbsp;  ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=MySQL&logoColor=white) ![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat-square&logo=GoogleCloud&logoColor=white) ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=ApacheAirflow&logoColor=white) ![LookerStudio](https://img.shields.io/badge/LookerStudio-4285F4?style=flat-square&logo=Looker&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=MySQL&logoColor=white)
+
 
 ---
 
@@ -16,7 +17,7 @@
 📁 air_quality_pipeline/
  ┣ 📁 dags/                     Airflow DAG 코드
  ┣ 📁 data/                     API 응답 데이터
- ┣ 📁 notebooks/                데이터 전처리 노트북
+ ┣ 📁 sql/                      빅쿼리 코드
  ┣ 📁 images/                   시각화 결과
  ┣ 📁 reports/                  프로젝트 보고서
  ┣ 📄 README.md                 프로젝트 설명 문서
