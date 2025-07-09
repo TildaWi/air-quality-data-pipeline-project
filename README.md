@@ -14,7 +14,7 @@
 ### 📂 디렉토리 구조
 
 ```plaintext
-📁 air_quality_pipeline/
+📁 air-quality-data-pipeline-project/
  ┣ 📁 dags/                     Airflow DAG 코드
  ┣ 📁 data/                     API 응답 데이터
  ┣ 📁 sql/                      빅쿼리 코드
