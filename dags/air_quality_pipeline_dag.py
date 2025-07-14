@@ -75,13 +75,13 @@ with DAG(
         task_id='upload_air_quality_to_gcs',
         src='/home/airflow/gcs/data/air_quality.csv',
         dst='data/air_quality.csv',
-        bucket='us-central1-airflow-final-d5ea4b16-bucket'
+        bucket='본인 버킷 주소 입력'
     )
 
     # 3️⃣ GCS → BigQuery 적재
     load_to_bq_task = GCSToBigQueryOperator(
         task_id='load_air_quality_to_bigquery',
-        bucket='us-central1-airflow-final-d5ea4b16-bucket',
+        bucket='본인 버킷 주소 입력',
         source_objects=['data/air_quality.csv'],
         destination_project_dataset_table='crested-bonfire-464501-k8.air_quality_dataset.air_quality',
         schema_fields=[
