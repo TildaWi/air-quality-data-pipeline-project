@@ -11,7 +11,7 @@
 
 ## 0. 프로젝트 구성 안내
 
-### 📂 디렉토리 구조
+### 디렉토리 구조
 
 ```plaintext
 📁 air-quality-data-pipeline-project/
@@ -28,7 +28,7 @@
 
 ## 1. 프로젝트 개요
 
-### 📌 세 줄 요약
+### 세 줄 요약
 - 공공데이터포털 API를 활용한 실시간 대기오염 데이터 수집 및 자동화 파이프라인 구축
 - Airflow 기반 ETL → BigQuery 적재 → Looker Studio 대시보드 연계
 - 운영팀의 **수동 데이터 수집 업무 100% 제거, 실시간 모니터링 시스템 구현**
@@ -37,16 +37,16 @@
 
 ## 2. 문제 정의 및 접근 방식
 
-### 🔎 Situation
+### Situation
 - 운영팀은 시도별 대기오염 정보를 실시간으로 모니터링하고 분석하는 것이 주 담당 업무
 - 기존 프로세스는 대기오염 데이터를 매일 공공데이터포털에서 수동 다운로드 → 엑셀 업로드 → 대시보드 업데이트 방식
 - 수동 프로세스 제거 및 실시간 변화 감지로 운영 대응시간 단축 필요
 
-### 💡 Task
+### Task
 - API 호출 → 데이터 전처리 → BigQuery 적재까지 자동화된 데이터 파이프라인 구축
 - Looker Studio를 통해 실시간 데이터 시각화 제공
 
-### 🏃 Action
+### Action
 - **Python**: API 호출, XML 파싱
 - **Airflow**: ETL 자동화 및 스케줄링
 - **GCP (BigQuery + GCS)**: 데이터 적재 및 쿼리 처리
@@ -54,11 +54,11 @@
 
 ![Architecture Diagram](images/architecture.png)
 
-### 🚀 Result
-✅ **운영팀 업무 효율화**  
+### Result
+**운영팀 업무 효율화**  
 → 공공데이터포털 수동 다운로드→실시간 대시보드 전환  
 
-✅ **실시간 대시보드 구축**  
+**실시간 대시보드 구축**  
 - KPI 카드, 시도별 오염도 지도, 시계열 추이 시각화
 - **로드 시간: 초기 5초 → 최적화 후 1.2초**
 
@@ -72,7 +72,7 @@
 - 공공데이터포털 API 승인 및 인증키 발급
 - XML 파싱 → pandas DataFrame 처리 → CSV 저장
 
-📄 *API 호출 및 CSV 저장 예제 코드*
+*API 호출 및 CSV 저장 예제 코드*
 ```python
 import requests
 import pandas as pd
@@ -90,7 +90,7 @@ df.to_csv('data/air_quality.csv', index=False)
 - GCS → BigQuery 데이터 적재 및 테이블 관리
 - **DAG 스케줄링**: 1시간마다 데이터 수집 자동화
 
-📄 삽입 이미지: `images/airflow_dag_schedule.png`
+삽입 이미지: `images/airflow_dag_schedule.png`
 
 ---
 
@@ -101,13 +101,7 @@ df.to_csv('data/air_quality.csv', index=False)
 
 🔗 **[실시간 대기오염 모니터링 대시보드 바로가기](#)**
 
-📄 삽입 이미지: `images/looker_dashboard_layout.png`
-
----
-
-### 3-4) 발표 자료 및 보고서
-- 📚 [발표 자료 PDF](reports/air_quality_presentation.pdf)
-- 📄 [프로젝트 요약 PDF](reports/air_quality_summary.pdf)
+삽입 이미지: `images/looker_dashboard_layout.png`
 
 ---
 
